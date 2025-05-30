@@ -28,7 +28,7 @@ export const sendExpenseData = async (data: ExpenseData) => {
 
 export const getExpenseReport = async (month: string) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/report`, {
+    const response = await axios.get('/api/get-report', {
       params: { month },
     });
     return response.data;
