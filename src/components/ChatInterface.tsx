@@ -64,6 +64,7 @@ const ChatInterface: React.FC = () => {
         type: 'text',
         timestamp: new Date().toISOString(),
       });
+      console.log('Webhook response:', response);
 
       const systemMessage: Message = {
         id: Date.now(),
