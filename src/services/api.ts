@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'YOUR_WEBHOOK_URL';
+const API_BASE_URL = 'https://hook.eu2.make.com/jl4q8tf9mfk3jea8ed5rn9l7wjq5imld';
 
 export interface ExpenseData {
   message: string;
