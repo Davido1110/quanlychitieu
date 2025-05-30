@@ -65,21 +65,25 @@ const ChatInterface: React.FC = () => {
         timestamp: new Date().toISOString(),
       });
       console.log('Webhook response:', response);
-      const systemMessage: Message = {
-        id: Date.now(),
-        text: typeof response === 'string' && response.trim() ? response : 'Đã lưu chi tiêu của bạn!',
-        sender: 'system',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, systemMessage]);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now(),
+          text: response,
+          sender: 'system',
+          timestamp: new Date(),
+        }
+      ]);
     } catch (error) {
-      const errorMessage: Message = {
-        id: Date.now(),
-        text: 'Có lỗi xảy ra khi lưu chi tiêu. Vui lòng thử lại!',
-        sender: 'system',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now(),
+          text: 'Có lỗi xảy ra khi lưu chi tiêu. Vui lòng thử lại!',
+          sender: 'system',
+          timestamp: new Date(),
+        }
+      ]);
     }
   };
 
