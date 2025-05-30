@@ -13,9 +13,12 @@ export const sendExpenseData = async (data: ExpenseData) => {
     const response = await axios.post(API_BASE_URL, data, {
       headers: { 'Content-Type': 'application/json' },
       responseType: 'text',
+      validateStatus: () => true,
     });
+    console.log('AXIOS FULL RESPONSE:', response);
     return response.data;
   } catch (error: any) {
+    console.error('AXIOS ERROR:', error);
     if (error.response && typeof error.response.data === 'string') {
       return error.response.data;
     }
