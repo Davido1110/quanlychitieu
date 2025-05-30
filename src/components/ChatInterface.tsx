@@ -59,7 +59,7 @@ const ChatInterface: React.FC = () => {
     setInputText('');
 
     try {
-      await sendExpenseData({
+      const response = await sendExpenseData({
         message: inputText,
         type: 'text',
         timestamp: new Date().toISOString(),
@@ -67,7 +67,7 @@ const ChatInterface: React.FC = () => {
 
       const systemMessage: Message = {
         id: Date.now(),
-        text: 'Đã lưu chi tiêu của bạn!',
+        text: response || 'Đã lưu chi tiêu của bạn!',
         sender: 'system',
         timestamp: new Date(),
       };

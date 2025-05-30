@@ -10,7 +10,10 @@ export interface ExpenseData {
 
 export const sendExpenseData = async (data: ExpenseData) => {
   try {
-    const response = await axios.post(API_BASE_URL, data);
+    const response = await axios.post(API_BASE_URL, data, {
+      headers: { 'Content-Type': 'application/json' },
+      responseType: 'text',
+    });
     return response.data;
   } catch (error) {
     console.error('Error sending expense data:', error);
