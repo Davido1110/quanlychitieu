@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Quản lý chi tiêu",
+  "name": "Quản lý chi tiêu - Gia đình Hêu",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,11 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#006241",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "description": "Ứng dụng quản lý chi tiêu gia đình với giao diện chat thông minh",
+  "dir": "ltr",
+  "lang": "vi-VN",
+  "prefer_related_applications": false
 }
