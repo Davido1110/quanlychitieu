@@ -65,10 +65,9 @@ const ChatInterface: React.FC = () => {
         timestamp: new Date().toISOString(),
       });
       console.log('Webhook response:', response);
-
       const systemMessage: Message = {
         id: Date.now(),
-        text: response || 'Đã lưu chi tiêu của bạn!',
+        text: typeof response === 'string' && response.trim() ? response : 'Đã lưu chi tiêu của bạn!',
         sender: 'system',
         timestamp: new Date(),
       };
@@ -108,15 +107,15 @@ const ChatInterface: React.FC = () => {
         const reader = new FileReader();
         reader.onload = async (e) => {
           const base64Image = e.target?.result as string;
-          await sendExpenseData({
+          const response = await sendExpenseData({
             message: base64Image,
             type: 'image',
             timestamp: new Date().toISOString(),
           });
-
+          console.log('Webhook response (image):', response);
           const systemMessage: Message = {
             id: Date.now(),
-            text: 'Đã lưu hóa đơn của bạn!',
+            text: typeof response === 'string' && response.trim() ? response : 'Đã lưu hóa đơn của bạn!',
             sender: 'system',
             timestamp: new Date(),
           };
