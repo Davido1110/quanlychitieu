@@ -15,8 +15,10 @@ export const sendExpenseData = async (data: ExpenseData) => {
       responseType: 'text',
     });
     return response.data;
-  } catch (error) {
-    console.error('Error sending expense data:', error);
+  } catch (error: any) {
+    if (error.response && typeof error.response.data === 'string') {
+      return error.response.data;
+    }
     throw error;
   }
 };
